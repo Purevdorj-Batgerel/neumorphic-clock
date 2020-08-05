@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="clock">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+        <svg id="dots" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720">
+          <path
+            d="M363 45a3 3 0 11-6 0 3 3 0 116 0zM396 47a3 3 0 11-6 0 3 3 0 116 0zM429 52a3 3 0 11-6 0 3 3 0 116 0zM460 60a3 3 0 11-6 0 3 3 0 116 0zM491 72a3 3 0 11-6 0 3 3 0 116 0zM521 87a3 3 0 11-6 0 3 3 0 116 0zM548 105a3 3 0 11-6 0 3 3 0 116 0zM574 126a3 3 0 11-6 0 3 3 0 116 0zM597 149a3 3 0 11-6 0 3 3 0 116 0zM618 175a3 3 0 11-6 0 3 3 0 116 0zM636 202a3 3 0 11-6 0 3 3 0 116 0zM651 232a3 3 0 11-6 0 3 3 0 116 0zM663 263a3 3 0 11-6 0 3 3 0 116 0zM671 295a3 3 0 11-6 0 3 3 0 116 0zM676 327a3 3 0 11-6 0 3 3 0 116 0zM678 360a3 3 0 11-6 0 3 3 0 116 0zM676 393a3 3 0 11-6 0 3 3 0 116 0zM671 425a3 3 0 11-6 0 3 3 0 116 0zM663 457a3 3 0 11-6 0 3 3 0 116 0zM651 488a3 3 0 11-6 0 3 3 0 116 0zM636 517a3 3 0 11-6 0 3 3 0 116 0zM618 545a3 3 0 11-6 0 3 3 0 116 0zM597 571a3 3 0 11-6 0 3 3 0 116 0zM574 594a3 3 0 11-6 0 3 3 0 116 0zM548 615a3 3 0 11-6 0 3 3 0 116 0zM521 633a3 3 0 11-6 0 3 3 0 116 0zM491 648a3 3 0 11-6 0 3 3 0 116 0zM460 660a3 3 0 11-6 0 3 3 0 116 0zM429 668a3 3 0 11-6 0 3 3 0 116 0zM396 673a3 3 0 11-6 0 3 3 0 116 0zM363 675a3 3 0 11-6 0 3 3 0 116 0zM330 673a3 3 0 11-6 0 3 3 0 116 0zM298 668a3 3 0 11-6 0 3 3 0 116 0zM266 660a3 3 0 11-6 0 3 3 0 116 0zM235 648a3 3 0 11-6 0 3 3 0 116 0zM206 633a3 3 0 11-6 0 3 3 0 116 0zM178 615a3 3 0 11-6 0 3 3 0 116 0zM152 594a3 3 0 11-6 0 3 3 0 116 0zM129 571a3 3 0 11-6 0 3 3 0 116 0zM108 545a3 3 0 11-6 0 3 3 0 116 0zM90 517a3 3 0 11-6 0 3 3 0 116 0zM75 488a3 3 0 11-6 0 3 3 0 116 0zM63 457a3 3 0 11-6 0 3 3 0 116 0zM55 425a3 3 0 11-6 0 3 3 0 116 0zM50 393a3 3 0 11-6 0 3 3 0 116 0zM48 360a3 3 0 11-6 0 3 3 0 116 0zM50 327a3 3 0 11-6 0 3 3 0 116 0zM55 295a3 3 0 11-6 0 3 3 0 116 0zM63 263a3 3 0 11-6 0 3 3 0 116 0zM75 232a3 3 0 11-6 0 3 3 0 116 0zM90 202a3 3 0 11-6 0 3 3 0 116 0zM108 175a3 3 0 11-6 0 3 3 0 116 0zM129 149a3 3 0 11-6 0 3 3 0 116 0zM152 126a3 3 0 11-6 0 3 3 0 116 0zM178 105a3 3 0 11-6 0 3 3 0 116 0zM206 87a3 3 0 11-6 0 3 3 0 116 0zM235 72a3 3 0 11-6 0 3 3 0 116 0zM266 60a3 3 0 11-6 0 3 3 0 116 0zM298 52a3 3 0 11-6 0 3 3 0 116 0zM330 47a3 3 0 11-6 0 3 3 0 116 0z"
+          />
+        </svg>
+        <span id="_12" class="number">12</span>
+        <span id="_3" class="number">3</span>
+        <span id="_6" class="number">6</span>
+        <span id="_9" class="number">9</span>
+      </div>
+    </div>
+
+
+    <label class="label">
+      <div class="toggle">
+        <input id="toggle" class="toggle-state" type="checkbox" name="check" value="check" onchange="onChange()"/>
+        <div class="indicator"></div>
+      </div>
+    </label>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
