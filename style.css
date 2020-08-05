@@ -63,6 +63,7 @@ body {
   right: 0;
   border-radius: 50px;
   animation: initialNeedle .5s cubic-bezier(0, 0, 0.34, .94) 1.7s both;
+  transition: transform .2s;
 }
 
 #hour {

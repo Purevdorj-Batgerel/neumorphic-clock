@@ -1,13 +1,42 @@
-function update() {
+let secondDegree;
+let minuteDegree;
+let hourDegree;
+
+let seconds;
+
+function initialize() {
   const date = new Date();
 
-  const seconds = date.getSeconds();
+  seconds = date.getSeconds();
   const minutes = date.getMinutes();
   const hours = ((date.getHours() + 11) % 12) + 1;
 
-  const secondDegree = seconds * 6;
-  const minuteDegree = minutes * 6 + (seconds * 6) / 60;
-  const hourDegree = hours * 30 + (minutes * 30) / 60;
+   secondDegree = seconds * 6;
+   minuteDegree = minutes * 6 + (seconds * 6) / 60;
+   hourDegree = hours * 30 + (minutes * 30) / 60;
+
+   document.documentElement.style.setProperty(
+    "--hourDegree",
+    `${hourDegree}deg`
+  );
+  document.documentElement.style.setProperty(
+    "--minuteDegree",
+    `${minuteDegree}deg`
+  );
+  document.documentElement.style.setProperty(
+    "--secondDegree",
+    `${secondDegree}deg`
+  );
+
+   setInterval(update, 1000);
+}
+
+function update() {
+  seconds = seconds + 1;
+
+  secondDegree += 6;
+  minuteDegree += 0.1;
+   hourDegree += .1 / 60;
 
   const shine = document.querySelector(".shine");
   if (shine) shine.classList.remove("shine");
@@ -57,7 +86,6 @@ function onChange() {
       document.documentElement.classList.remove('theme-transition')
     }, 1000)
   }
-
 }
 
-setInterval(update, 1000);
+initialize()
