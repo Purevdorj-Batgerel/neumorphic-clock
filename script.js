@@ -1,88 +1,66 @@
-let secondDegree;
-let minuteDegree;
-let hourDegree;
+const time = {}
 
-let seconds;
+const numbers = [3, 6, 9, 12]
+const styleProperties = ['hourDegree', 'minuteDegree', 'secondDegree']
 
-function initialize() {
+const numElements = new Map();
+
+numbers.forEach(num => {
+  numElements.set(num, document.getElementById(`_${num}`))
+})
+
+function initialize () {
   const date = new Date();
 
-  seconds = date.getSeconds();
+  time.seconds = date.getSeconds();
   const minutes = date.getMinutes();
   const hours = ((date.getHours() + 11) % 12) + 1;
 
-   secondDegree = seconds * 6;
-   minuteDegree = minutes * 6 + (seconds * 6) / 60;
-   hourDegree = hours * 30 + (minutes * 30) / 60;
+  time.secondDegree = time.seconds * 6;
+  time.minuteDegree = minutes * 6 + (time.seconds * 6) / 60;
+  time.hourDegree = hours * 30 + (minutes * 30) / 60;
 
-   document.documentElement.style.setProperty(
-    "--hourDegree",
-    `${hourDegree}deg`
-  );
-  document.documentElement.style.setProperty(
-    "--minuteDegree",
-    `${minuteDegree}deg`
-  );
-  document.documentElement.style.setProperty(
-    "--secondDegree",
-    `${secondDegree}deg`
-  );
-
-   setInterval(update, 1000);
+  setInterval(update, 1000);
 }
 
-function update() {
-  seconds = seconds + 1;
-
-  secondDegree += 6;
-  minuteDegree += 0.1;
-   hourDegree += .1 / 60;
-
-  const shine = document.querySelector(".shine");
-  if (shine) shine.classList.remove("shine");
-
+function getNumberElement (seconds) {
   switch (seconds) {
     case 0:
-      document.getElementById("_12").classList.add("shine");
-      break;
+      return numElements.get(12)
     case 15:
-      document.getElementById("_3").classList.add("shine");
-      break;
+      return numElements.get(3)
     case 30:
-      document.getElementById("_6").classList.add("shine");
-      break;
+      return numElements.get(6)
     case 45:
-      document.getElementById("_9").classList.add("shine");
-      break;
-    default:
-      break;
+      return numElements.get(9)
   }
-
-  document.documentElement.style.setProperty(
-    "--hourDegree",
-    `${hourDegree}deg`
-  );
-  document.documentElement.style.setProperty(
-    "--minuteDegree",
-    `${minuteDegree}deg`
-  );
-  document.documentElement.style.setProperty(
-    "--secondDegree",
-    `${secondDegree}deg`
-  );
 }
 
-function onChange() {
-  if(toggle.checked) {
+function update () {
+  time.seconds = (time.seconds + 1) % 60;
+  time.secondDegree += 6;
+  time.minuteDegree += 0.1;
+  time.hourDegree += .1 / 60;
+
+  document.querySelector(".shine")?.classList.remove("shine");
+  getNumberElement(time.seconds)?.classList.add("shine")
+
+  styleProperties.forEach(props => {
+    document.documentElement.style.setProperty(`--${props}`, `${time[props]}deg`)
+  })
+}
+
+function onChange () {
+  if (toggle.checked) {
     document.documentElement.classList.add('theme-transition')
     document.documentElement.setAttribute('data-theme', 'dark')
-    window.setTimeout(function() {
+    window.setTimeout(() => {
       document.documentElement.classList.remove('theme-transition')
     }, 1000)
   } else {
     document.documentElement.classList.add('theme-transition')
     document.documentElement.setAttribute('data-theme', 'light')
-    window.setTimeout(function() {
+    window.setTimeout(() => {
       document.documentElement.classList.remove('theme-transition')
     }, 1000)
   }
