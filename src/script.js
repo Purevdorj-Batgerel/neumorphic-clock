@@ -33,6 +33,8 @@ function getNumberElement(seconds) {
       return numElements.get(6);
     case 45:
       return numElements.get(9);
+    default:
+      return undefined;
   }
 }
 
@@ -54,19 +56,15 @@ function update() {
 }
 
 function onChange() {
+  document.documentElement.classList.add("theme-transition");
   if (toggle.checked) {
-    document.documentElement.classList.add("theme-transition");
     document.documentElement.setAttribute("data-theme", "dark");
-    window.setTimeout(() => {
-      document.documentElement.classList.remove("theme-transition");
-    }, 1000);
   } else {
-    document.documentElement.classList.add("theme-transition");
     document.documentElement.setAttribute("data-theme", "light");
-    window.setTimeout(() => {
-      document.documentElement.classList.remove("theme-transition");
-    }, 1000);
   }
+  window.setTimeout(() => {
+    document.documentElement.classList.remove("theme-transition");
+  }, 1000);
 }
 
 initialize();
