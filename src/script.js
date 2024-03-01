@@ -67,4 +67,6 @@ function onChange() {
   }, 1000);
 }
 
+window.onChange = onChange;
+
 initialize();

@@ -165,7 +165,7 @@ html[data-theme="dark"] #dots path {
   height: 40px;
   width: 80px;
   border-radius: 20px;
-  background-image: url(/sun.svg), url(/moon.svg);
+  background-image: url(../public/sun.svg), url(../public/moon.svg);
   background-position: left center, right center;
   background-repeat: no-repeat;
   overflow: hidden;
