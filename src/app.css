@@ -1,0 +1,25 @@
+main {
+  width: 100vw;
+  height: 100vh;
+  background-color: #dce4f1;
+  display: grid;
+  place-items: center;
+}
+
+.phone {
+  width: 420px;
+  height: 860px;
+  border-radius: 80px;
+  padding: 64px;
+  background: #e6eef8;
+  box-shadow: 41px 41px 82px #ccdbe9, -41px -41px 82px #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -1,0 +1,35 @@
+.sleepDisplay {
+  display: flex;
+  flex-direction: column;
+}
+
+.circleButtons {
+  display: flex;
+  margin: 20px auto;
+}
+
+.setAlarmButton {
+  color: white;
+  background-color: var(--primary);
+  border-style: none;
+  padding: 24px;
+  font-size: 18px;
+  border-radius: 16px;
+  box-shadow: 1px 1px 3px #cf6e6d, -1px -2px 4px #f3c0c3;
+  margin-top: 16px;
+}
+
+.notice {
+  margin-top: 28px;
+  text-align: center;
+  color: var(--text);
+  letter-spacing: 0.3px;
+
+  p {
+    margin: 12px;
+  }
+
+  .time {
+    font-weight: bold;
+  }
+}

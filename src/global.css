@@ -1,0 +1,33 @@
+html.theme-transition,
+html.theme-transition *:not(.transSafe),
+html.theme-transition *:not(.transSafe):before,
+html.theme-transition *:not(.transSafe):after {
+  transition: all 500ms !important;
+  transition-delay: 0 !important;
+}
+
+html {
+  --bgColor: #e6eef8;
+  --neuLight: #ffffff;
+  --neuShadow: #ccdbe9;
+  --primary: #f97f7d;
+  --primaryLight: #e9bec4;
+  --text: #525c73;
+  --textLight: #8f9bb4;
+  --digit: #545e75;
+  --digitLight: #dce4f0;
+}
+
+html[data-theme="dark"] {
+  --bgColor: #1b1721;
+  --neuLight: #2b2535;
+  --neuShadow: #0b090d;
+}
+
+body {
+  margin: 0;
+}
+
+div {
+  font-family: Arial, sans-serif;
+}

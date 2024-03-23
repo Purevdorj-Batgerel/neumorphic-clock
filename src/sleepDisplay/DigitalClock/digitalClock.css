@@ -1,0 +1,59 @@
+.digitalClock {
+  padding: 6px;
+  border-radius: 32px;
+  box-shadow: 4px 4px 8px #ccdbe9, -4px -4px 8px #ffffff;
+
+  & > div {
+    border-radius: 26px;
+    padding: 40px 80px;
+    background: #e6eef8;
+    box-shadow: inset 5px 5px 10px #ccdbe9, inset -5px -5px 10px #ffffff;
+  }
+}
+
+.digits {
+  display: flex;
+}
+
+.colon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 4px;
+  div {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: var(--digit);
+  }
+
+  div:first-child {
+    margin-bottom: 16px;
+  }
+}
+
+.periods {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.period {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--text);
+  margin: 6px 0 6px 12px;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    margin-right: 4px;
+    background-color: var(--digitLight);
+
+    &.active {
+      background-color: var(--primary);
+    }
+  }
+}

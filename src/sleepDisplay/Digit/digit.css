@@ -1,0 +1,102 @@
+.digit {
+  position: relative;
+  width: 26px;
+  height: 56px;
+  margin: 7px 11px;
+}
+
+.hor {
+  position: absolute;
+  width: 26px;
+  height: 6px;
+  background: var(--digitLight);
+}
+.hor:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -3px;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right: 3px solid var(--digitLight);
+}
+.hor:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: -3px;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left: 3px solid var(--digitLight);
+}
+
+.ver {
+  position: absolute;
+  width: 6px;
+  height: 24px;
+  background: var(--digitLight);
+}
+.ver:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: -3px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid var(--digitLight);
+}
+.ver:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: -3px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 3px solid var(--digitLight);
+}
+
+.on {
+  background: var(--digit);
+}
+
+.ver.on:before {
+  border-bottom-color: var(--digit);
+}
+.ver.on:after {
+  border-top-color: var(--digit);
+}
+
+.hor.on:before {
+  border-right-color: var(--digit);
+}
+.hor.on:after {
+  border-left-color: var(--digit);
+}
+
+.d1 {
+  top: -7px;
+}
+.d2 {
+  left: -6px;
+}
+.d3 {
+  right: -6px;
+}
+.d4 {
+  top: 25px;
+}
+.d5 {
+  top: 32px;
+  left: -6px;
+}
+.d6 {
+  top: 32px;
+  right: -6px;
+}
+.d7 {
+  bottom: -7px;
+}

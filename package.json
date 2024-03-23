@@ -4,6 +4,7 @@
   "private": "true",
   "description": "Neumorphic Clock",
   "main": "script.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
