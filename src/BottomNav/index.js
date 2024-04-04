@@ -7,12 +7,16 @@ import Profile from "../icons/profile";
 import CE from "../utils/createElement";
 
 export default function BottomNav() {
+  const buttons = [
+    { isActive: true, icon: Moon(), text: "Sleep" },
+    { icon: Pulse(), text: "Journal" },
+    { icon: BarChart(), text: "Statistics" },
+    { icon: Profile(), text: "Profile" },
+  ];
+
   return CE(
     "div",
     { class: "bottomNav" },
-    Button({ isActive: true, icon: Moon(), text: "Sleep" }),
-    Button({ icon: Pulse(), text: "Journal" }),
-    Button({ icon: BarChart(), text: "Statistics" }),
-    Button({ icon: Profile(), text: "Profile" })
+    buttons.map((button) => Button(button))
   );
 }

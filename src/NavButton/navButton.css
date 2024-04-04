@@ -6,6 +6,13 @@
   border-style: none;
   box-shadow: 8px 8px 16px #ccdbe9, -8px -8px 16px #ffffff;
   padding: 2px;
+  cursor: pointer;
+
+  &:hover {
+    div {
+      box-shadow: inset 5px 5px 10px #ccdbe9, inset -5px -5px 10px #ffffff;
+    }
+  }
 
   div {
     width: 100%;
@@ -14,6 +21,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 28px;
+    transition: box-shadow 0.2s ease-in;
   }
 
   svg {

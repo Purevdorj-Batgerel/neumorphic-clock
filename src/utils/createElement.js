@@ -13,7 +13,7 @@ export default function CE(tag, props, ...children) {
       } else {
         if (key === "class") {
           if (Array.isArray(value)) {
-            element.classList.add(...value);
+            element.classList.add(...value.filter((value) => value));
           } else {
             element.classList.add(value);
           }
