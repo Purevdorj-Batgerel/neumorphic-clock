@@ -4,13 +4,17 @@
   border-radius: 30px;
   background: #e2e9f5;
   border-style: none;
-  box-shadow: 8px 8px 16px #ccdbe9, -8px -8px 16px #ffffff;
+  box-shadow:
+    8px 8px 16px #ccdbe9,
+    -8px -8px 16px #ffffff;
   padding: 2px;
   cursor: pointer;
 
   &:hover {
     div {
-      box-shadow: inset 5px 5px 10px #ccdbe9, inset -5px -5px 10px #ffffff;
+      box-shadow:
+        inset 5px 5px 10px #ccdbe9,
+        inset -5px -5px 10px #ffffff;
     }
   }
 
@@ -42,12 +46,16 @@
 }
 
 .navButton.active {
-  box-shadow: 4px 4px 8px #ccdbe9, -4px -4px 8px #ffffff;
+  box-shadow:
+    4px 4px 8px #ccdbe9,
+    -4px -4px 8px #ffffff;
 
   div {
     border-radius: 28px;
     background: #e6eef8;
-    box-shadow: inset 5px 5px 10px #ccdbe9, inset -5px -5px 10px #ffffff;
+    box-shadow:
+      inset 5px 5px 10px #ccdbe9,
+      inset -5px -5px 10px #ffffff;
   }
 
   svg {

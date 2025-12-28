@@ -1,7 +1,7 @@
 import CE from "../utils/createElement";
 
-export default function Profile() {
-  return CE(
+const Profile = () =>
+  CE(
     ["http://www.w3.org/2000/svg", "svg"],
     { width: "24", height: "24", viewBox: "0 0 24 24" },
     CE(["http://www.w3.org/2000/svg", "path"], {
@@ -13,4 +13,5 @@ export default function Profile() {
       r: "4",
     })
   );
-}
+
+export default Profile;

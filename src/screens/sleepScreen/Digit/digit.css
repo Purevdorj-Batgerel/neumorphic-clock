@@ -1,8 +1,8 @@
 .digit {
   position: relative;
-  width: 26px;
-  height: 56px;
-  margin: 7px 11px;
+  width: 38px;
+  height: 70px;
+  margin: 0px 2%;
 }
 
 .hor {
@@ -35,7 +35,7 @@
 .ver {
   position: absolute;
   width: 6px;
-  height: 24px;
+  height: 26px;
   background: var(--digitLight);
 }
 .ver:before {
@@ -78,25 +78,28 @@
 }
 
 .d1 {
-  top: -7px;
+  left: 6px;
 }
 .d2 {
-  left: -6px;
+  top: 6px;
 }
 .d3 {
-  right: -6px;
+  top: 6px;
+  right: 0px;
 }
 .d4 {
-  top: 25px;
+  left: 6px;
+  top: 32px;
 }
 .d5 {
-  top: 32px;
-  left: -6px;
+  top: 38px;
+  left: 0px;
 }
 .d6 {
-  top: 32px;
-  right: -6px;
+  top: 38px;
+  right: 0px;
 }
 .d7 {
-  bottom: -7px;
+  left: 6px;
+  bottom: 0px;
 }

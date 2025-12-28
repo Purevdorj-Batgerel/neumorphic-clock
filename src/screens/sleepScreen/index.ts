@@ -1,12 +1,12 @@
-import CE from "../utils/createElement";
+import CE from "../../utils/createElement";
 import CircleButton from "./CircleButton";
 import DigitalClock from "./DigitalClock";
-import "./sleepDisplay.css";
+import "./sleepScreen.css";
 
-export default function SleepDisplay() {
-  return CE(
+const SleepScreen = () =>
+  CE(
     "div",
-    { class: "sleepDisplay" },
+    { class: "sleepScreen" },
     DigitalClock(),
     CE(
       "div",
@@ -22,4 +22,5 @@ export default function SleepDisplay() {
       CE("p", { class: "time" }, "9:30 AM  - 10:00 AM")
     )
   );
-}
+
+export default SleepScreen;

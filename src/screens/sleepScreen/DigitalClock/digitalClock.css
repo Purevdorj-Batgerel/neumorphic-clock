@@ -1,13 +1,17 @@
 .digitalClock {
   padding: 6px;
   border-radius: 32px;
-  box-shadow: 4px 4px 8px #ccdbe9, -4px -4px 8px #ffffff;
+  box-shadow:
+    4px 4px 8px #ccdbe9,
+    -4px -4px 8px #ffffff;
 
   & > div {
     border-radius: 26px;
     padding: 40px 80px;
     background: #e6eef8;
-    box-shadow: inset 5px 5px 10px #ccdbe9, inset -5px -5px 10px #ffffff;
+    box-shadow:
+      inset 5px 5px 10px #ccdbe9,
+      inset -5px -5px 10px #ffffff;
   }
 }
 

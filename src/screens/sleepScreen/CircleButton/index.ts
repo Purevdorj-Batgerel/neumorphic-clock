@@ -1,10 +1,11 @@
-import CE from "../../utils/createElement";
+import CE from "../../../utils/createElement";
 import "./circleButton.css";
 
-export default function CircleButton({ text = "" }) {
-  return CE(
+const CircleButton = ({ text = "" }) =>
+  CE(
     "div",
     { class: "circleButton" },
     CE("div", { class: "innerCircle" }, text)
   );
-}
+
+export default CircleButton;

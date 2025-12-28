@@ -12,12 +12,14 @@ main {
   border-radius: 80px;
   padding: 64px;
   background: #e6eef8;
-  box-shadow: 41px 41px 82px #ccdbe9, -41px -41px 82px #ffffff;
+  box-shadow:
+    41px 41px 82px #ccdbe9,
+    -41px -41px 82px #ffffff;
   display: flex;
   flex-direction: column;
 }
 
-.display {
+.screens {
   flex: 1;
   display: flex;
   flex-direction: column;

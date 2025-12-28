@@ -1,8 +1,8 @@
-import CE from "../../utils/createElement";
+import CE from "../../../utils/createElement";
 import "./digit.css";
 
-export default function Digit(value = 0) {
-  return CE(
+const Digit = (value = 0) =>
+  CE(
     "div",
     { class: "digit" },
     CE("span", {
@@ -100,4 +100,5 @@ export default function Digit(value = 0) {
       ],
     })
   );
-}
+
+export default Digit;

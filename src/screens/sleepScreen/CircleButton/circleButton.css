@@ -5,7 +5,9 @@
   margin: 8px 16px;
   padding: 8px;
   box-sizing: border-box;
-  box-shadow: inset 1px 1px 1px #bac1c9, inset -1px -1px 1px #ffffff;
+  box-shadow:
+    inset 1px 1px 1px #bac1c9,
+    inset -1px -1px 1px #ffffff;
 }
 
 .innerCircle {
@@ -13,7 +15,9 @@
   height: 100%;
   border-radius: 100%;
   background: #e6eef8;
-  box-shadow: 4px 4px 7px #d7e4f1, -4px -4px 7px #ffffff;
+  box-shadow:
+    4px 4px 7px #d7e4f1,
+    -4px -4px 7px #ffffff;
 
   line-height: 56px;
   text-align: center;

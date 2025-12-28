@@ -2,6 +2,9 @@ import "./global.css";
 
 import App from "./app";
 
+const toggle = document.getElementById("toggle") as HTMLInputElement;
+const app = document.getElementById("app") as HTMLDivElement;
+
 function onChange() {
   document.documentElement.classList.add("theme-transition");
   if (toggle.checked) {
@@ -14,6 +17,9 @@ function onChange() {
   }, 1000);
 }
 
+// @ts-expect-error
 window.onChange = onChange;
 
-app.appendChild(App());
+if (app) {
+  app.appendChild(App());
+}
