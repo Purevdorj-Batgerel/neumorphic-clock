@@ -11,4 +11,10 @@ export default defineConfig({
   build: {
     assetsDir: "./",
   },
+  esbuild: {
+    jsxFactory: "createElement",
+    jsxFragment: "Fragment",
+    jsxInject:
+      "import { createElement, Fragment } from '@/utils/createElement';",
+  },
 });

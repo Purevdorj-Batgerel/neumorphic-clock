@@ -2,7 +2,9 @@
 
 let activeEffect: (() => void) | null = null;
 
-export function createSignal<T>(initialValue: T): [() => T, (newValue: T) => void] {
+export function createSignal<T>(
+  initialValue: T
+): [() => T, (newValue: T) => void] {
   let value = initialValue;
   const subscribers = new Set<() => void>();
 

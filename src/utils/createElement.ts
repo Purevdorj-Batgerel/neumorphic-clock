@@ -1,75 +1,80 @@
 import { createEffect } from "./reactivity";
 
+const SVG_TAGS = ["svg", "path", "circle", "rect", "line"];
 
-type Props = Record<string, any> | null;
-type Child =
-  | Node
-  | string
-  | number
-  | ((() => string | number | Node))
-  | (Node | string | number | (() => string | number | Node))[];
+function isEventListenerOrEventListenerObject(
+  value: any
+): value is EventListenerOrEventListenerObject {
+  return (
+    typeof value === "function" ||
+    (typeof value === "object" &&
+      value !== null &&
+      Object.prototype.hasOwnProperty.call(value, "handleEvent"))
+  );
+}
 
-export default function CE(
-  tag: string | [string | null, string],
-  props?: Props,
-  ...children: Child[]
+function createElement(
+  tag: string | ((props: any) => Element),
+  props: any,
+  ...children: any[]
 ) {
-  let element: Element;
-  if (Array.isArray(tag)) {
-    element = document.createElementNS(...tag);
+  if (typeof tag === "function") {
+    return tag({ ...props, children });
+  }
+  let element;
+
+  if (SVG_TAGS.includes(tag)) {
+    element = document.createElementNS("http://www.w3.org/2000/svg", tag);
   } else {
     element = document.createElement(tag);
   }
 
   if (props) {
     Object.entries(props).forEach(([key, value]) => {
-      if (key.startsWith("on") && typeof value === "function") {
-        element.addEventListener(key.substring(2), value as EventListener);
+      if (key.startsWith("on") && isEventListenerOrEventListenerObject(value)) {
+        element.addEventListener(key.substring(2).toLowerCase(), value);
+      } else if (key === "className") {
+        // Handle reactive className
+        if (typeof value === "function") {
+          createEffect(() => {
+            element.setAttribute("class", String(value()));
+          });
+        } else {
+          element.setAttribute("class", String(value));
+        }
       } else {
-        createEffect(() => {
-          const actualValue = typeof value === "function" ? value() : value;
-          if (key === "class") {
-            const cls = Array.isArray(actualValue)
-              ? (actualValue as string[]).filter((v) => v).join(" ")
-              : String(actualValue);
-            element.className = cls;
-          } else {
-            if (actualValue === null || actualValue === undefined || actualValue === false) {
-                 element.removeAttribute(key);
-            } else {
-                 element.setAttribute(key, String(actualValue));
-            }
-          }
-        });
+        // Handle reactive attributes
+        if (typeof value === "function") {
+          createEffect(() => {
+            element.setAttribute(key, String(value()));
+          });
+        } else {
+          element.setAttribute(key, String(value));
+        }
       }
     });
   }
 
-  children.forEach((child) => {
-    if (Array.isArray(child)) {
-      element.append(...(child as (Node | string)[]));
-      return;
-    }
-
-    if (typeof child === "function") {
+  children.flat().forEach((child) => {
+    if (typeof child === "string" || typeof child === "number") {
+      element.appendChild(document.createTextNode(String(child)));
+    } else if (typeof child === "function") {
+      // Handle reactive children (signals)
       const textNode = document.createTextNode("");
       element.appendChild(textNode);
       createEffect(() => {
-        const val = child();
-        textNode.textContent = String(val);
+        textNode.textContent = String(child());
       });
-      return;
-    }
-
-    if (typeof child === "string" || typeof child === "number") {
-      element.appendChild(document.createTextNode(String(child)));
-      return;
-    }
-
-    if (child instanceof Node) {
+    } else {
       element.appendChild(child);
     }
   });
 
   return element;
 }
+
+function Fragment(props: any) {
+  return props.children;
+}
+
+export { createElement, Fragment };
