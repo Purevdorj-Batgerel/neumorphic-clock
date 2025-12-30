@@ -1,39 +1,62 @@
+import { createSignal, createEffect } from "../utils/reactivity";
 
-import { createSignal } from "../utils/reactivity";
+// Create reactive path signal
+const getInitialPath = () => {
+  const path = window.location.pathname;
+  return path === "/index.html" || path === "" ? "/" : path;
+};
 
-export class Router {
-  routes: Record<string, Element> = {};
-  outlet: Element | null = null;
-  currentPath: () => string;
-  private setCurrentPath: (path: string) => void;
+export const [currentPath, setCurrentPath] = createSignal(getInitialPath());
 
-  constructor(outlet: Element) {
-    this.outlet = outlet;
-    const [path, setPath] = createSignal(window.location.pathname);
-    this.currentPath = path;
-    this.setCurrentPath = setPath;
-    window.addEventListener("popstate", () => this.handlePopState());
-  }
+// Route configuration type
+type RouteConfig = {
+  path: string;
+  component: () => Element;
+};
 
-  addRoute(path: string, component: Element) {
-    this.routes[path] = component;
-  }
+// Route registry
+const routes: RouteConfig[] = [];
 
-  navigate(path: string) {
+// Register a route
+export function addRoute(path: string, component: () => Element) {
+  routes.push({ path, component });
+}
+
+// Navigate to a new path
+export function navigate(path: string) {
+  if (currentPath() !== path) {
     history.pushState({}, "", path);
-    this.setCurrentPath(path);
-    this.render(path);
+    setCurrentPath(path);
   }
+}
 
-  handlePopState() {
-    this.setCurrentPath(window.location.pathname);
-    this.render(window.location.pathname);
-  }
+// Get the component for the current path
+export function getCurrentComponent(): Element | null {
+  const path = currentPath();
+  const route = routes.find((r) => r.path === path);
+  return route ? route.component() : null;
+}
 
-  render(path: string) {
-    if (this.outlet && this.routes[path]) {
-      this.outlet.innerHTML = "";
-      this.outlet.appendChild(this.routes[path]);
+// Initialize router - handle browser back/forward
+export function initRouter() {
+  window.addEventListener("popstate", () => {
+    setCurrentPath(getInitialPath());
+  });
+}
+
+// Create a reactive router outlet that automatically updates when path changes
+export function createRouterOutlet(): Element {
+  const outlet = document.createElement("div");
+  outlet.className = "screens";
+
+  // Reactively update the outlet when path changes
+  createEffect(() => {
+    const component = getCurrentComponent();
+    if (component) {
+      outlet.innerHTML = "";
+      outlet.appendChild(component);
     }
-  }
+  });
+
+  return outlet;
 }
