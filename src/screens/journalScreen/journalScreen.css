@@ -1,0 +1,27 @@
+h1,
+p {
+  margin: 0;
+}
+
+.title {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  color: #586171;
+}
+
+.separator {
+  height: 4px;
+  margin: 16px 0px;
+
+  border-radius: 39px;
+  background: #e6edf8;
+  box-shadow:
+    inset 1px 1px 2px #bbc2c8,
+    inset -1px -1px 2px #ffffff;
+}
+
+.days {
+  display: flex;
+  justify-content: space-between;
+}
