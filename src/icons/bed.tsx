@@ -1,4 +1,4 @@
-const Moon = () => (
+const Bed = () => (
   <svg
     width="24"
     height="24"
@@ -9,8 +9,10 @@ const Moon = () => (
     stroke-linecap="round"
     stroke-linejoin="round"
   >
-    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+    <path d="M2 4v16" />
+    <path d="M2 8h18a2 2 0 0 1 2 2v10" />
+    <path d="M2 17h20" />
+    <path d="M6 8v9" />
   </svg>
 );
-
-export { Moon };
+export { Bed };

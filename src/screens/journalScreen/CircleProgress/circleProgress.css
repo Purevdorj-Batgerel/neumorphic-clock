@@ -1,22 +1,21 @@
 .day {
   display: grid;
   place-items: center;
-  width: 50px;
-  height: 50px;
 
-  border-radius: 50px;
+  height: auto;
+  aspect-ratio: 1/1;
+
+  border-radius: 50%;
   background: #e5eff8;
   box-shadow:
     2px 2px 2px #d7dde9,
     -2px -2px 2px #edf5ff;
 
-  color: #586171;
-
   .progressRidge {
-    width: 44px;
-    height: 44px;
+    height: auto;
+    aspect-ratio: 1/1;
 
-    border-radius: 50px;
+    border-radius: 50%;
     background: #e2e9f5;
     box-shadow:
       inset 3px 3px 6px #d7dde9,
@@ -26,10 +25,10 @@
   .innerCircle {
     position: absolute;
 
-    width: 30px;
-    height: 30px;
+    height: auto;
+    aspect-ratio: 1/1;
 
-    border-radius: 50px;
+    border-radius: 50%;
     background: #e2e9f5;
     box-shadow:
       3px 3px 6px #ced4df,
@@ -39,23 +38,29 @@
   .progress {
     transform: rotate(-90deg);
     position: absolute;
+
+    circle {
+      stroke-width: 13;
+      stroke-linecap: round;
+      fill: transparent;
+    }
   }
 
   .text {
     position: absolute;
-    width: 26px;
-    height: 26px;
+    height: auto;
+    aspect-ratio: 1/1;
 
-    border-radius: 50px;
+    border-radius: 50%;
     background: #e2e9f5;
     box-shadow:
       inset 2px 2px 2px #d7dde9,
       inset -2px -2px 2px #edf5ff;
 
-    text-align: center;
-    line-height: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    font-size: 12px;
-    font-weight: bolder;
+    text-align: center;
   }
 }

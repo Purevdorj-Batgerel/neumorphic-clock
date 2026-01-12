@@ -19,12 +19,10 @@ const App = () => {
   const screens = createRouterOutlet();
 
   return (
-    <main>
-      <div class="phone">
-        {screens}
-        <BottomNav />
-      </div>
-    </main>
+    <div class="phone">
+      {screens}
+      <BottomNav />
+    </div>
   );
 };
 

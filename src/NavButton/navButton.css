@@ -9,6 +9,7 @@
     -8px -8px 16px #ffffff;
   padding: 2px;
   cursor: pointer;
+  transition: box-shadow 0.2s ease-out;
 
   &:hover {
     div {
@@ -43,27 +44,27 @@
     color: var(--textLight);
     font-weight: bold;
   }
-}
 
-.navButton.active {
-  box-shadow:
-    4px 4px 8px #ccdbe9,
-    -4px -4px 8px #ffffff;
-
-  div {
-    border-radius: 28px;
-    background: #e6eef8;
+  &.active {
     box-shadow:
-      inset 5px 5px 10px #ccdbe9,
-      inset -5px -5px 10px #ffffff;
-  }
+      4px 4px 8px #ccdbe9,
+      -4px -4px 8px #ffffff;
 
-  svg {
-    filter: drop-shadow(0px 0px 2px var(--primary));
-    stroke: var(--primary);
-  }
+    div {
+      border-radius: 28px;
+      background: #e6eef8;
+      box-shadow:
+        inset 5px 5px 10px #ccdbe9,
+        inset -5px -5px 10px #ffffff;
+    }
 
-  span {
-    color: var(--primary);
+    svg {
+      filter: drop-shadow(0px 0px 2px var(--primary));
+      stroke: var(--primary);
+    }
+
+    span {
+      color: var(--primary);
+    }
   }
 }

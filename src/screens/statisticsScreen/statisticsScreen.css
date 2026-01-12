@@ -1,0 +1,126 @@
+.statisticsScreen {
+  color: #586171;
+  flex: 1;
+
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 48px;
+    margin-bottom: 24px;
+  }
+}
+
+.tabSelector {
+  border-radius: 30px;
+  background: #e2e9f5;
+  border-style: none;
+  box-shadow:
+    4px 4px 8px #ccdbe9,
+    -4px -4px 8px #ffffff;
+  padding: 2px;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-out;
+
+  .inner {
+    height: 80px;
+
+    border-radius: 28px;
+    background: #e6eef8;
+    box-shadow:
+      inset 5px 5px 10px #ccdbe9,
+      inset -5px -5px 10px #ffffff;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.tab {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  height: 80px;
+  border-radius: 30px;
+
+  font-size: 20px;
+  font-weight: bolder;
+
+  &.active {
+    background: #e2e9f5;
+
+    box-shadow:
+      8px 8px 16px #ccdbe9,
+      -8px -8px 16px #ffffff;
+  }
+}
+
+.sleepQualityChart {
+  display: grid;
+  grid-template-columns: max-content repeat(7, 1fr);
+  grid-template-rows: repeat(2, max-content);
+  gap: 10px;
+
+  span {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .percentages {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    font-size: 14px;
+  }
+
+  .bars {
+    display: flex;
+    justify-content: space-between;
+    grid-area: 1 / 2 / 2 / 9;
+  }
+
+  .bar {
+    width: 32px;
+    height: 100%;
+    background: #e2e9f5;
+    border-radius: 10px;
+
+    box-shadow:
+      4px 4px 8px #ccdbe9,
+      -4px -4px 8px #ffffff;
+    padding: 2px;
+
+    & > div {
+      height: 100%;
+      width: 100%;
+      border-radius: 8px;
+      background: #e6eef8;
+      box-shadow:
+        inset 5px 5px 10px #ccdbe9,
+        inset -5px -5px 10px #ffffff;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .fill {
+      background: var(--primary);
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+
+  .labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: 2 / 2 / 3 / 9;
+    margin-top: 16px;
+
+    span {
+      width: 32px;
+      text-align: center;
+    }
+  }
+}
