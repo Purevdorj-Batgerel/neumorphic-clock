@@ -42,6 +42,24 @@ function createElement(
         } else {
           element.setAttribute("class", String(value));
         }
+      } else if (
+        key === "style" &&
+        typeof value === "object" &&
+        value !== null
+      ) {
+        Object.entries(value).forEach(([styleKey, styleValue]) => {
+          if (typeof styleValue === "function") {
+            createEffect(() => {
+              element.style.setProperty(styleKey, String(styleValue()));
+            });
+          } else {
+            if (typeof styleValue === "number") {
+              element.style.setProperty(styleKey, `${styleValue}px`);
+            } else {
+              element.style.setProperty(styleKey, styleValue);
+            }
+          }
+        });
       } else {
         // Handle reactive attributes
         if (typeof value === "function") {
